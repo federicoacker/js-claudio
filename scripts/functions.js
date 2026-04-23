@@ -17,8 +17,8 @@ function createUserMessage(userMessage) {
 function createAiMessage(aiMessage) {
     if (dom.aiMessageTemplate && dom.chatContainerEl) {
         const templateCopy = document.importNode(dom.aiMessageTemplate.content, true);
-        const textMessage = templateCopy.querySelector("p");
-        textMessage.textContent = aiMessage;
+        const textMessage = templateCopy.querySelector("div.content");
+        textMessage.innerHTML = aiMessage;
         dom.chatContainerEl.appendChild(templateCopy);
     }
 }
@@ -38,6 +38,7 @@ function askClaude(message) {
         body: JSON.stringify(
             {
                 "max_tokens": 1024,
+                "system": "You are a helpful conversational chatbot who only formats his answers in semantic html",
                 "model": CLAUDE_MODEL,
                 "messages": history
             }
@@ -86,6 +87,7 @@ function userSubmitHandler(event) {
 
     }
 }
+
 function validateString(string) {
     const validatedString = string.trim();
     if (validatedString === "") {
