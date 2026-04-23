@@ -1,13 +1,29 @@
+'use strict'
+// @ts-check
 const dom = {
-    userMessageTemplate = document.querySelector("#user-message-template"),
-    aiMessageTemplate = document.querySelector("#ai-message-template"),
-    inputFormEl = document.querySelector("#user-input-form"),
-    inputEl = document.querySelector("#user-message-input"),
-    chatContainerEl = document.querySelector(".chat-container")
+    userMessageTemplate : document.querySelector("#user-message-template"),
+    aiMessageTemplate : document.querySelector("#ai-message-template"),
+    inputFormEl : document.querySelector("#user-input-form"),
+    inputEl : document.querySelector("#user-message-input"),
+    chatContainerEl : document.querySelector(".chat-container")
 }
 
 const history = [];
 
+/**
+ * @param {string} userMessage
+ */
+function createUserMessage(userMessage){
+        
+
+    if(dom.userMessageTemplate && dom.chatContainerEl){
+        console.log(dom.userMessageTemplate);
+        const templateCopy = document.importNode(dom.userMessageTemplate.content, true);
+        const textMessage = templateCopy.querySelector("p");
+        textMessage.textContent = userMessage;
+        dom.chatContainerEl.appendChild(templateCopy);
+    }
+}
 /*
 function askClaude(message){
 
@@ -44,3 +60,5 @@ function askClaude(message){
 
 askClaude("Ciao Claude");
 */
+
+createUserMessage("Ciao");

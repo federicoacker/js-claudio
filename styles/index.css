@@ -24,9 +24,14 @@
     --bulma-control-height: none;
 }
 
+.user-message-container{
+    display:flex;
+    justify-content:end;
+}
 .user-message{
     display:flex;
     align-items:center;
+    justify-content:end;
     margin-top:10px;
     margin-bottom:10px;
     border: 2px solid rgb(53, 58, 70);
@@ -50,7 +55,10 @@
     max-width:60px;
     aspect-ratio:1;
 }
-
+.ai-message-container{
+    display:flex;
+    justify-content:start;
+}
 .ai-message{
     display:flex;
     align-items:center;
