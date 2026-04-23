@@ -1,0 +1,25 @@
+
+.chat-container{
+    min-height: 80vh;
+    border: 2px solid rgb(53, 58, 70);
+    border-radius: 15px;
+}
+.columns{
+    margin-top:0;
+    flex-wrap:wrap;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+.align-items-stretch{
+    align-items: stretch;
+}
+
+.button{
+    float:right;
+    min-width:100px;
+}
+
+.input{
+    --bulma-control-height: none;
+}

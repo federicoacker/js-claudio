@@ -1,6 +1,7 @@
 
 const history = [];
 
+/*
 function askClaude(message){
 
     const userMessage = {
@@ -35,3 +36,4 @@ function askClaude(message){
 }
 
 askClaude("Ciao Claude");
+*/
