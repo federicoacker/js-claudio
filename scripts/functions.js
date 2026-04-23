@@ -88,7 +88,8 @@ function userSubmitHandler(event) {
         askClaude(messageValue)
         .then(response => {
             dom.loaderEl.classList.add("d-none");
-            dom.buttonEl.disabled = false;   
+            dom.buttonEl.disabled = false;
+            dom.inputEl.value = "";   
         })
         .catch(error => {
             console.log(error);
