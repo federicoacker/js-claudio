@@ -85,10 +85,16 @@ function userSubmitHandler(event) {
         if(!messageSuccess){
             return;
         }
-        askClaude(messageValue).then(response => {
+        askClaude(messageValue)
+        .then(response => {
             dom.loaderEl.classList.add("d-none");
             dom.buttonEl.disabled = false;   
         })
+        .catch(error => {
+            console.log(error);
+        })
+
+        
     }
 }
 function validateString(string){
