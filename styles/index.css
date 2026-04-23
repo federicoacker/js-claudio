@@ -79,3 +79,19 @@
 .ai-text{
     padding:10px 20px;
 }
+
+.loading-icon{
+    margin-top: 0.5rem;
+    display:flex;
+    justify-content:center;
+    width:3rem;
+    height:3rem;
+    align-items:center;
+}
+.loader{
+    width:3rem;
+    height:3rem;
+}
+.d-none{
+    display:none;
+}

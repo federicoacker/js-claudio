@@ -6,7 +6,8 @@ const dom = {
     inputFormEl : document.querySelector("#user-input-form"),
     inputEl : document.querySelector("#user-message-input"),
     chatContainerEl : document.querySelector(".chat-container"),
-    buttonEl : document.querySelector("#send-button")
+    buttonEl : document.querySelector("#send-button"),
+    loaderEl : document.querySelector(".loader")
 }
 
 const history = [];
@@ -33,8 +34,8 @@ function createAiMessage(aiMessage){
 
 function askClaude(message){
     
-    buttonEl.disable = true;
-
+    dom.buttonEl.disabled = true;
+    dom.loaderEl.classList.remove("d-none");
     const userMessage = {
         role: "user",
         content: message
@@ -48,7 +49,7 @@ function askClaude(message){
             "messages": history
         });
 
-    let claudeResponse = fetch(CLAUDE_API_URL, 
+    return fetch(CLAUDE_API_URL, 
     {
         method:"POST",
         headers: claudeHeader,
@@ -60,11 +61,13 @@ function askClaude(message){
     .then(data =>
     {
         const responseText = data.content[0].text;
-        history.push(responseText);
+        history.push({
+            role: "assistant",
+            content: responseText
+        });
         createUserMessage(message);
         createAiMessage(responseText);
-        buttonEl.disable = false;
-        return responseText;
+        console.log(history);
     }
     )
     .catch(error => {
@@ -75,14 +78,17 @@ function askClaude(message){
 
 function userSubmitHandler(event) {
     event.preventDefault();
-    if(inputEl){
-        const userMessage = inputEl.value;
+    if(dom.inputEl){
+        const userMessage = dom.inputEl.value;
 
         const [messageSuccess, messageValue] = validateString(userMessage);
         if(!messageSuccess){
             return;
         }
-        askClaude(messageValue).then()
+        askClaude(messageValue).then(response => {
+            dom.loaderEl.classList.add("d-none");
+            dom.buttonEl.disabled = false;   
+        })
     }
 }
 function validateString(string){
@@ -92,3 +98,5 @@ function validateString(string){
     }
     return [true, validatedString]
 }
+
+dom.inputFormEl.addEventListener("submit", userSubmitHandler);
