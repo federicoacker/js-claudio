@@ -29,7 +29,7 @@ function createAiMessage(aiMessage){
         dom.chatContainerEl.appendChild(templateCopy);
     }
 }
-/*
+
 function askClaude(message){
 
     const userMessage = {
@@ -38,6 +38,7 @@ function askClaude(message){
     }
 
     history.push(userMessage);
+    
     const body = JSON.stringify({
             "max_tokens": 1024,
             "model": CLAUDE_MODEL,
@@ -55,7 +56,10 @@ function askClaude(message){
     })
     .then(data =>
     {
-        console.log(data);
+        const responseText = data.content[0].text;
+        history.push(responseText);
+        createUserMessage(message);
+        createAiMessage(responseText);
     }
     )
     .catch(error => {
@@ -63,8 +67,3 @@ function askClaude(message){
     })
 }
 
-askClaude("Ciao Claude");
-*/
-
-createUserMessage("Ciao");
-createAiMessage("Ciao");

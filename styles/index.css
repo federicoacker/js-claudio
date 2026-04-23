@@ -1,8 +1,10 @@
 
 .chat-container{
     min-height: 80vh;
+    max-height: 80vh;
     border: 2px solid rgb(53, 58, 70);
     border-radius: 15px;
+    overflow:auto;
 }
 .columns{
     margin-top:0;
