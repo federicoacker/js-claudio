@@ -11,30 +11,29 @@
 </head>
 
 <body>
+    <template id="user-message-template">
+        <div class="user-message">
+            <p id="user-text" class="user-text"></p>
+            <figure class="image-container">
+                <i class="bi bi-person user-image"></i>
+            </figure>
+        </div>
+    </template>
+    <template id="ai-message-template">
+        <div class="ai-message">
+            <figure class="image-container">
+                <img src="./res/imgs/claudio.png" alt="Il nostro Claudio, l'ai italiana più snob di sempre"
+                    class="ai-image">
+            </figure>
+            <p id="ai-text" class="ai-text content"></p>
+        </div>
+    </template>
     <div class="container">
         <div class="columns is-centered">
             <div class="column is-full chat-container">
-                <div class="user-message">
-                    <p id="user-text" class="user-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                        distinctio iusto ex culpa sint eum architecto, laborum blanditiis cupiditate deleniti? Nulla
-                        facilis illum sunt optio! Dolore consequatur ex odit voluptates.</p>
-                    <figure class="image-container">
-                        <i class="bi bi-person user-image"></i>
-                    </figure>
-                </div>
-                <div class="ai-message">
-                    <figure class="image-container">
-                        <img src="./res/imgs/claudio.png" alt="Il nostro Claudio, l'ai italiana più snob di sempre"
-                            class="ai-image">
-                    </figure>
-                    <p id="ai-text" class="ai-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                        distinctio iusto ex culpa sint eum architecto, laborum blanditiis cupiditate deleniti? Nulla
-                        facilis illum sunt optio! Dolore consequatur ex odit voluptates.</p>
-
-                </div>
             </div>
             <div class="column is-full form-container">
-                <form action="" class="columns align-items-stretch">
+                <form action="" class="columns align-items-stretch" id="user-input-form">
                     <input class="input column is-10" type="text" id="user-message-input"
                         placeholder="Ciao, dimmi pure cosa ti serve...">
                     <button class="button column is-2" type="submit">Invia</button>
