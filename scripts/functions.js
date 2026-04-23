@@ -60,6 +60,7 @@ function askClaude(message){
         history.push(responseText);
         createUserMessage(message);
         createAiMessage(responseText);
+        return responseText;
     }
     )
     .catch(error => {
@@ -67,3 +68,18 @@ function askClaude(message){
     })
 }
 
+function userSubmitHandler(event) {
+    event.preventDefault();
+    if(inputEl){
+        const userMessage = inputEl.value;
+
+        // Sanifica il valore
+    }
+}
+function validateString(string){
+    const validatedString  = string.trim();
+    if(validatedString === ""){
+        return [false, null];
+    }
+    return [true, validatedString]
+}
