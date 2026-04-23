@@ -68,7 +68,8 @@ function askClaude(message){
     }
     )
     .catch(error => {
-        console.log(error);
+        createAiMessage(error.stack);
+        throw new Error;
     })
 }
 
@@ -77,7 +78,11 @@ function userSubmitHandler(event) {
     if(inputEl){
         const userMessage = inputEl.value;
 
-        // Sanifica il valore
+        const [messageSuccess, messageValue] = validateString(userMessage);
+        if(!messageSuccess){
+            return;
+        }
+        askClaude(messageValue).then()
     }
 }
 function validateString(string){
