@@ -23,3 +23,49 @@
 .input{
     --bulma-control-height: none;
 }
+
+.user-message{
+    display:flex;
+    align-items:center;
+    margin-top:10px;
+    margin-bottom:10px;
+    border: 2px solid rgb(53, 58, 70);
+    border-radius: 15px; 
+}
+.user-image{
+    
+    display:flex;
+    font-size: 2rem;
+    padding: 10px;
+    border:2px solid rgb(53, 58, 70);
+    border-radius:50%;
+}
+.user-text{
+    padding:10px 20px;
+}
+
+.image-container{
+    margin-right: 1rem;
+    margin-left: 1rem;
+    max-width:60px;
+    aspect-ratio:1;
+}
+
+.ai-message{
+    display:flex;
+    align-items:center;
+    margin-top:10px;
+    margin-bottom:10px;
+    border: 2px solid rgb(53, 58, 70);
+    border-radius: 15px; 
+}
+.ai-image{
+    
+    display:flex;
+    font-size: 2rem;
+    border:2px solid rgb(53, 58, 70);
+    border-radius:50%;
+}
+.ai-text{
+    padding:10px 20px;
+}
