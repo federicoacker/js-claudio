@@ -5,7 +5,8 @@ const dom = {
     aiMessageTemplate : document.querySelector("#ai-message-template"),
     inputFormEl : document.querySelector("#user-input-form"),
     inputEl : document.querySelector("#user-message-input"),
-    chatContainerEl : document.querySelector(".chat-container")
+    chatContainerEl : document.querySelector(".chat-container"),
+    buttonEl : document.querySelector("#send-button")
 }
 
 const history = [];
@@ -31,6 +32,8 @@ function createAiMessage(aiMessage){
 }
 
 function askClaude(message){
+    
+    buttonEl.disable = true;
 
     const userMessage = {
         role: "user",
@@ -60,6 +63,7 @@ function askClaude(message){
         history.push(responseText);
         createUserMessage(message);
         createAiMessage(responseText);
+        buttonEl.disable = false;
         return responseText;
     }
     )
